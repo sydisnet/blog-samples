@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+    <!-- Force the use of the Servlet 3.0 protocol with all containers, as it
+        is the most mature -->
+    <defaultProtocol type="Servlet 3.0"/>
+
+    <!-- Uncomment to have test archives exported to the file system for inspection -->
+    <engine>
+        <property name="deploymentExportPath">target/</property>
+    </engine>
+
+    <container qualifier="wildfly-remote-8" default="true">
+        <configuration>
+            <property name="jbossHome">C:/opt/jboss/wildfly/wildfly-8.0.0.CR1</property>
+            <property name="javaVmArguments">-Xmx512m -XX:MaxPermSize=128m</property>
+            <property name="serverConfig">sydisnet.xml</property>
+            <property name="managementAddress">127.0.0.1</property>
+            <property name="managementPort">19990</property>
+            <!--            <property name="username">test</property> -->
+            <!--            <property name="password">my_password</property> -->
+        </configuration>
+    </container>
+
+</arquillian>

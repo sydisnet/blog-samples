@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--  Object Model Version -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Referencing Common Parent Configuration -->
+    <parent>
+        <artifactId>blog-samples</artifactId>
+        <groupId>eu.sydisnet</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <!-- Artifact Metadata -->
+    <artifactId>camel-integration</artifactId>
+    <packaging>war</packaging>
+
+    <!-- Project INFORMATION -->
+    <name>camel-integration</name>
+    <description>Sample which explains integration between Camel and JBoss AS/WildFly 8.x</description>
+
+    <!-- Specific Properties -->
+    <properties>
+        <javaee.api.version>7.0</javaee.api.version>
+        <camel.version>2.12.2</camel.version>
+        <junit.version>4.11</junit.version>
+        <weldse.version>2.1.1.Final</weldse.version>
+        <wildfly.arquillian.container.version>8.0.0.CR1</wildfly.arquillian.container.version>
+    </properties>
+
+    <!-- Custom Build Config -->
+    <build>
+        <!-- Set the name of the war, used as the context root when the app
+         is deployed -->
+        <finalName>${project.artifactId}</finalName>
+
+        <!-- Test Resources are overridden in order to add some resources in test classes easily -->
+        <testResources>
+            <testResource>
+                <directory>src/main/webapp</directory>
+            </testResource>
+            <testResource>
+                <directory>src/main/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+        </testResources>
+    </build>
+
+    <!-- Dependencies -->
+    <dependencies>
+        <!-- Java EE API -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${javaee.api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Camel Core Container -->
+        <!-- Camel Core (EIP) -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+            <version>${camel.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Camel Exec (Component) -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-exec</artifactId>
+            <version>${camel.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Testing -->
+        <!-- JUnit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Weld Embedded Container -->
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se</artifactId>
+            <version>${weldse.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Arquillian Support -->
+        <!-- Arquillian JUnit Container -->
+        <dependency>
+            <groupId>org.jboss.arquillian.junit</groupId>
+            <artifactId>arquillian-junit-container</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Graphene2 Over Drone Stack-->
+        <!-- Although we don't use Graphene 2 here, importing this fixes some dependencies about MavenResolver -->
+        <dependency>
+            <groupId>org.jboss.arquillian.graphene</groupId>
+            <artifactId>graphene-webdriver</artifactId>
+            <version>${org.jboss.arquillian.graphene2.version}</version>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Arquillian Servlet Protocol required by JBoss AS 7+ -->
+        <dependency>
+            <groupId>org.jboss.arquillian.protocol</groupId>
+            <artifactId>arquillian-protocol-servlet</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Specific Testing -->
+        <!-- Arquillian WildFly Support  -->
+        <dependency>
+            <groupId>org.wildfly</groupId>
+            <artifactId>wildfly-arquillian-container-managed</artifactId>
+            <version>${wildfly.arquillian.container.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>
