@@ -11,7 +11,7 @@ First, copy the <WILDFLY_AS_HOME>/standalone/configuration.xml in the same direc
 
 Then, you have to uncomment in arquillian.xml, the following lines :
 
-'''xml
+```xml
 (...)
 <container qualifier="wildfly-remote-8" default="true">
     <configuration>
@@ -25,13 +25,13 @@ Then, you have to uncomment in arquillian.xml, the following lines :
         (...)
     </configuration>
 </container>
-'''
+```
 
 In sydisnet.xml, search for port-offset="${jboss.socket.binding.port-offset:0}" and change it to
 
-'''xml
+```xml
     port-offset="${jboss.socket.binding.port-offset:10000}"
-'''
+```
 
 So, ports used by WildFly will be 18080 for HTTP, 19999 for native management and 19990 for web console management.
 That is this last port which is used by Arquillian.
