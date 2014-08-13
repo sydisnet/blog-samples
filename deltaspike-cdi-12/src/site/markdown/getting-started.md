@@ -145,7 +145,7 @@ Avec **CDI 1.2**, plus besoin de préciser la balise SCAN !
     </beans>
 
 
-Et ça, c'est tant mieux !on
+Et ça, c'est tant mieux !
 
 
 
