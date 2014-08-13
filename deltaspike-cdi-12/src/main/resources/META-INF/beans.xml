@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_2.xsd"
+       version="1.2" bean-discovery-mode="annotated">
+
+    <!-- Activate Interceptors -->
+    <!--<interceptors>-->
+        <!--<class>PLACE_HERE_FULL_CLASSNAME_INTERCEPTOR</class>-->
+    <!--</interceptors>-->
+
+    <!-- Configure JAR Scanning Exceptions from CDI -->
+    <!-- Useless because we use CDI 1.2 -->
+    <!--<scan>-->
+        <!-- HikariCP -->
+        <!--<exclude name="com.zaxxer.hikari.hibernate.**"/>-->
+        <!--<exclude name="com.zaxxer.hikari.metrics.**"/>-->
+        <!-- JavAssist -->
+        <!--<exclude name="javassist.**"/> &lt;!&ndash; JDK VS JRE &ndash;&gt;-->
+        <!-- Oracle -->
+        <!--<exclude name="oracle.xdb.**"/>-->
+        <!--<exclude name="oracle.sql.**"/>-->
+        <!--<exclude name="oracle.jdbc.**"/>-->
+        <!-- Hibernate Validator -->
+        <!--<exclude name="org.hibernate.validator.internal.constraintvalidators.**"/>-->
+        <!--<exclude name="org.hibernate.validator.parameternameprovider.**"/>-->
+        <!-- JBoss Logging -->
+        <!--<exclude name="org.jboss.logging.**"/>-->
+        <!-- JBoss Weld Extensions -->
+        <!--<exclude name="org.jboss.weld.**"/>-->
+    <!--</scan>-->
+
+</beans>
