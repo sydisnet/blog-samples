@@ -26,9 +26,9 @@
             <topBarContainerStyle>width: 90%;</topBarContainerStyle>
             <navBarStyle>navbar-inverse</navBarStyle>
             <sideBarEnabled>true</sideBarEnabled>
-            <googleSearch>
-                <sitesearch/>
-            </googleSearch>
+            <!--<googleSearch>-->
+                <!--<sitesearch/>-->
+            <!--</googleSearch>-->
             <!--<sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>-->
             <gitHub>
                 <projectId>sydisnet/blog-samples/deltaspike-cdi-12</projectId>

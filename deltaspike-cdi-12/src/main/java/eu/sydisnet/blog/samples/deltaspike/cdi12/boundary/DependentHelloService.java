@@ -13,11 +13,13 @@ import java.lang.invoke.MethodHandles;
 /**
  * Component whose responsibility is to send to the client a welcome message.
  *
- * @author sydisnet
- * @version 1.0.0
+ * The scope dependent means there are more than one bean when retrieved from CDI.
+ *
+ * @author      sydisnet
+ * @version     1.0.0
  */
 @Dependent
-public class HelloService {
+public class DependentHelloService {
 
     /**
      * Static Logger.
@@ -41,16 +43,6 @@ public class HelloService {
     private MessageFormatter messageFormatter;
 
     /**
-     * Sets the {@link eu.sydisnet.blog.samples.deltaspike.cdi12.control.MessageFormatter} instance to swith the
-     * default instance injected by the CDI container.
-     * @param newMessageFormatterImpl   the new implementation of the
-     *                                  {@link eu.sydisnet.blog.samples.deltaspike.cdi12.control.MessageFormatter}
-     */
-    public void setMessageFormatter(final MessageFormatter newMessageFormatterImpl) {
-        this.messageFormatter = newMessageFormatterImpl;
-    }
-
-    /**
      * Method called by the CDI container when the bean is retrieved from
      * {@link javax.enterprise.inject.spi.BeanManager}. See the JSR 250 Callback {@link javax.annotation.PostConstruct}
      * annotation.
@@ -66,6 +58,8 @@ public class HelloService {
      * Method called by the CDI container before the destruction of the bean from the
      * {@link javax.enterprise.inject.spi.BeanManager}. See the JSR 250 Callback {@link javax.annotation.PreDestroy}
      * annotation.
+     *
+     * This method will be never called since the bean has the scope {@link javax.enterprise.context.Dependent}.
      */
     @PreDestroy
     void tearDown() {

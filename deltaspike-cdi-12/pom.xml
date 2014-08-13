@@ -13,9 +13,10 @@
     <properties>
         <!-- Core Plugins -->
         <maven.surefire.plugin.version>2.17</maven.surefire.plugin.version>
-        <maven.site.plugin.version>3.3</maven.site.plugin.version>
+        <maven.deploy.plugin.version>2.8.1</maven.deploy.plugin.version>
+        <maven.site.plugin.version>3.4</maven.site.plugin.version>
         <!-- Packaging types / tools Plugins -->
-        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+        <maven.jar.plugin.version>2.5</maven.jar.plugin.version>
         <!-- Reporting Plugins -->
         <reporting.project-info-reports.version>2.7</reporting.project-info-reports.version>
         <reporting.jxr.version>2.4</reporting.jxr.version>
@@ -23,16 +24,15 @@
         <reporting.taglist.version>2.4</reporting.taglist.version>
         <!-- Third-Parties Plugins -->
         <jacoco.maven.plugin.version>0.7.1.201405082137</jacoco.maven.plugin.version>
-        <downloads.maven.plugin.version>0.6</downloads.maven.plugin.version>
         <site.maven.plugin.version>0.9</site.maven.plugin.version>
         <!-- QA Reporting Plugins -->
-        <reporting.pmd.version>3.1</reporting.pmd.version>
+        <reporting.pmd.version>3.2</reporting.pmd.version>
         <reporting.surefire.version>2.17</reporting.surefire.version>
         <reporting.jdepend.version>2.0</reporting.jdepend.version>
         <reporting.checkstyle.version>2.12.1</reporting.checkstyle.version>
         <reporting.dashboard.version>1.0.0-beta-1</reporting.dashboard.version>
         <!-- Tools Plugins -->
-        <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
+        <maven.source.plugin.version>2.3</maven.source.plugin.version>
 
         <!--  Encoding -->
         <!-- Explicitly declaring the source encoding eliminates the following
@@ -56,12 +56,12 @@
 
         <!-- API and Libs versions -->
         <cdi.api.version>1.2</cdi.api.version>
-        <deltaspike.core.api.version>1.0.0</deltaspike.core.api.version>
-        <weld.se.version>2.2.2.Final</weld.se.version>
+        <deltaspike.core.api.version>1.0.1</deltaspike.core.api.version>
+        <weld.se.version>2.2.4.Final</weld.se.version>
         <jandex.version>1.2.1.Final</jandex.version>
-        <deltaspike.core.impl.version>1.0.0</deltaspike.core.impl.version>
-        <deltaspike.cdictrl.api.version>1.0.0</deltaspike.cdictrl.api.version>
-        <deltaspike.cdictrl.weld.version>1.0.0</deltaspike.cdictrl.weld.version>
+        <deltaspike.core.impl.version>1.0.1</deltaspike.core.impl.version>
+        <deltaspike.cdictrl.api.version>1.0.1</deltaspike.cdictrl.api.version>
+        <deltaspike.cdictrl.weld.version>1.0.1</deltaspike.cdictrl.weld.version>
         <!-- Logging -->
         <slf4j.version>1.7.5</slf4j.version>
         <!-- Markdown Support for Maven site -->
@@ -72,7 +72,7 @@
         <hamcrest.version>1.3</hamcrest.version>
 
         <!-- For Packing -->
-        <app.main.class>eu.sydisnet.blog.samples.deltaspike.cdi12.main.Cdi12ContainerLauncher</app.main.class>
+        <!--<app.main.class>eu.sydisnet.blog.samples.deltaspike.cdi12.main.Cdi12ContainerLauncher</app.main.class>-->
     </properties>
 
     <!-- Dependencies -->
@@ -202,6 +202,7 @@
 
         <!-- Plugins' Configuration -->
         <plugins>
+
             <!-- Jar -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -330,127 +331,8 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Site -->
-            <plugin>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>${maven.site.plugin.version}</version>
-                <configuration>
-                    <locales>fr</locales>
-                </configuration>
-                <dependencies>
-                    <dependency><!-- add support for markdown -->
-                        <groupId>org.apache.maven.doxia</groupId>
-                        <artifactId>doxia-module-markdown</artifactId>
-                        <version>${doxia.module.markdown.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
     </build>
-
-    <!-- Documentation -->
-    <reporting>
-        <plugins>
-            <!-- ########################################### Common Reports ########################################### -->
-            <!-- Project Info Report -->
-            <plugin>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>${reporting.project-info-reports.version}</version>
-            </plugin>
-
-            <!-- JXR -->
-            <plugin>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>${reporting.jxr.version}</version>
-            </plugin>
-
-            <!-- Javadoc -->
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.plugin.version}</version>
-                <configuration>
-                    <groups>
-                        <group>
-                            <title>Main package - Main Programs reside here</title>
-                            <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.main*</packages>
-                        </group>
-                        <group>
-                            <title>Boundary package - "Boundary" layer in ECB Architectural Pattern whose responsibility is to coordinate reusable services located in sub-layers</title>
-                            <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.boundary*</packages>
-                        </group>
-                        <group>
-                            <title>Control package - "Control" layer in ECB Architectural Pattern contains basic reusable services</title>
-                            <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.control*</packages>
-                        </group>
-                        <group>
-                            <title>Core Engine - Specific annotations</title>
-                            <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.engine*</packages>
-                        </group>
-                    </groups>
-                    <aggregate>true</aggregate>
-                    <show>private</show>
-                </configuration>
-            </plugin>
-
-            <!-- TagList -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>taglist-maven-plugin</artifactId>
-                <version>${reporting.taglist.version}</version>
-            </plugin>
-
-            <!-- ########################################### Test Coverage ########################################### -->
-            <!-- Jacoco -->
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco.maven.plugin.version}</version>
-            </plugin>
-
-            <!-- ########################################### Quality ########################################### -->
-            <!-- PMD -->
-            <plugin>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${reporting.pmd.version}</version>
-                <configuration>
-                    <linkXRef>true</linkXRef>
-                    <targetJdk>1.7</targetJdk>
-                </configuration>
-            </plugin>
-
-            <!-- Surefire -->
-            <plugin>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>${reporting.surefire.version}</version>
-            </plugin>
-
-            <!-- JDepend -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jdepend-maven-plugin</artifactId>
-                <version>${reporting.jdepend.version}</version>
-            </plugin>
-
-            <!-- ########################################### Coding Style ########################################### -->
-            <!-- Checkstyle -->
-            <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${reporting.checkstyle.version}</version>
-                <configuration>
-                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
-                </configuration>
-            </plugin>
-
-            <!-- ########################################### Aggregation ########################################### -->
-            <!-- Dashboard -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>dashboard-maven-plugin</artifactId>
-                <version>${reporting.dashboard.version}</version>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <!-- ################################################################################## -->
     <!-- ################################################################################## -->
@@ -482,8 +364,7 @@
             </roles>
             <timezone>+2</timezone>
             <properties>
-                <!--<picUrl>https://avatars1.githubusercontent.com/u/2983396?s=60</picUrl>-->
-                <picUrl>images/she.png</picUrl>
+                <picUrl>https://avatars1.githubusercontent.com/u/2983396?s=60</picUrl>
             </properties>
         </developer>
     </developers>
@@ -514,61 +395,219 @@
         <maven>3.1.1</maven>
     </prerequisites>
 
-    <!-- Other profiles -->
+    <!-- ################################################################################## -->
+    <!-- ################################################################################## -->
+    <!-- ################################# Other Profiles ################################# -->
+    <!-- ################################################################################## -->
+    <!-- ################################################################################## -->
     <profiles>
-        <!-- GITHUB PROFILE -->
+
+        <!-- SITE DOC PROFILE -->
         <profile>
-            <id>push-on-github</id>
+            <id>site</id>
 
             <!-- Custom Build configuration -->
             <build>
                 <plugins>
-                     <!--GitHub Integration Plugins-->
-                     <!--GitHub Downloads Maven Plugin-->
-                     <!--Maven plugin that uploads built artifacts to be available as downloads from a GitHub repository-->
+
+                    <!-- Site -->
                     <plugin>
-                        <groupId>com.github.github</groupId>
-                        <artifactId>downloads-maven-plugin</artifactId>
-                        <version>${downloads.maven.plugin.version}</version>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <version>${maven.site.plugin.version}</version>
                         <configuration>
-                            <description>Official ${project.name} build of the ${project.version} release</description>
-                            <override>true</override>
-                            <includeAttached>true</includeAttached>
-                                <server>github</server>
+                            <locales>fr</locales>
                         </configuration>
-                        <executions>
-                            <execution>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>upload</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                        <dependencies>
+                            <dependency><!-- add support for markdown -->
+                                <groupId>org.apache.maven.doxia</groupId>
+                                <artifactId>doxia-module-markdown</artifactId>
+                                <version>${doxia.module.markdown.version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
-                     <!--GitHub Site Maven Plugin-->
-                     <!--Maven plugin that commits files to a branch in a GitHub repository-->
+                </plugins>
+            </build>
+
+            <!-- Reporting Configuration -->
+            <reporting>
+                <plugins>
+                    <!-- ########################################### Common Reports ########################################### -->
+                    <!-- Project Info Report -->
+                    <plugin>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>${reporting.project-info-reports.version}</version>
+                    </plugin>
+
+                    <!-- JXR -->
+                    <plugin>
+                        <artifactId>maven-jxr-plugin</artifactId>
+                        <version>${reporting.jxr.version}</version>
+                    </plugin>
+
+                    <!-- Javadoc -->
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven.javadoc.plugin.version}</version>
+                        <configuration>
+                            <groups>
+                                <group>
+                                    <title>Main package - Main Programs reside here</title>
+                                    <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.main*</packages>
+                                </group>
+                                <group>
+                                    <title>Boundary package - "Boundary" layer in ECB Architectural Pattern whose responsibility is to coordinate reusable services located in sub-layers</title>
+                                    <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.boundary*</packages>
+                                </group>
+                                <group>
+                                    <title>Control package - "Control" layer in ECB Architectural Pattern contains basic reusable services</title>
+                                    <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.control*</packages>
+                                </group>
+                                <group>
+                                    <title>Core Engine - Specific annotations</title>
+                                    <packages>eu.sydisnet.blog.samples.deltaspike.cdi12.engine*</packages>
+                                </group>
+                            </groups>
+                            <aggregate>true</aggregate>
+                            <show>private</show>
+                        </configuration>
+                    </plugin>
+
+                    <!-- TagList -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>taglist-maven-plugin</artifactId>
+                        <version>${reporting.taglist.version}</version>
+                    </plugin>
+
+                    <!-- ########################################### Test Coverage ########################################### -->
+                    <!-- Jacoco -->
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco.maven.plugin.version}</version>
+                    </plugin>
+
+                    <!-- ########################################### Quality ########################################### -->
+                    <!-- PMD -->
+                    <plugin>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${reporting.pmd.version}</version>
+                        <configuration>
+                            <linkXRef>true</linkXRef>
+                            <targetJdk>1.7</targetJdk>
+                        </configuration>
+                    </plugin>
+
+                    <!-- Surefire -->
+                    <plugin>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                        <version>${reporting.surefire.version}</version>
+                    </plugin>
+
+                    <!-- JDepend -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>jdepend-maven-plugin</artifactId>
+                        <version>${reporting.jdepend.version}</version>
+                    </plugin>
+
+                    <!-- ########################################### Coding Style ########################################### -->
+                    <!-- Checkstyle -->
+                    <plugin>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${reporting.checkstyle.version}</version>
+                        <configuration>
+                            <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                        </configuration>
+                    </plugin>
+
+                    <!-- ########################################### Aggregation ########################################### -->
+                    <!-- Dashboard -->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>dashboard-maven-plugin</artifactId>
+                        <version>${reporting.dashboard.version}</version>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+
+        <!-- GITHUB PUSH PROFILE -->
+        <profile>
+            <id>github-push</id>
+
+            <properties>
+                <!-- github server corresponds to entry in ~/.m2/settings.xml -->
+                <github.global.server>github</github.global.server>
+            </properties>
+
+            <!-- Distribution Management -->
+            <distributionManagement>
+                <repository>
+                    <id>internal.repo</id>
+                    <name>Temporary Staging Repository</name>
+                    <url>file://${project.build.directory}/mvn-repo</url>
+                </repository>
+            </distributionManagement>
+
+            <!-- Custom Build configuration -->
+            <build>
+                <plugins>
+
+                    <!-- Deploy plugin configuration -->
+                    <plugin>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${maven.deploy.plugin.version}</version>
+                        <configuration>
+                            <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                        </configuration>
+                    </plugin>
+
+                    <!--GitHub Site Maven Plugin-->
+                    <!--Maven plugin that commits files to a branch in a GitHub repository-->
                     <plugin>
                         <groupId>com.github.github</groupId>
                         <artifactId>site-maven-plugin</artifactId>
                         <version>${site.maven.plugin.version}</version>
-                        <configuration>
-                            <message>Building site for ${project.version}</message>
-                            <server>github</server>
-                        </configuration>
                         <executions>
-                        <execution>
-                            <phase>site</phase>
-                            <goals>
-                                <goal>site</goal>
-                            </goals>
-                        </execution>
+                            <!-- Push artifacts on GITHUB -->
+                            <execution>
+                                <id>github-push-artifacts</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <configuration>
+                                    <!-- git commit message -->
+                                    <message>Official ${project.name} build for ${project.version}</message>
+                                    <!-- disable webpage processing -->
+                                    <noJekyll>true</noJekyll>
+                                    <!-- matches distribution management repository url above -->
+                                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+                                    <!-- remote branch name -->
+                                    <branch>refs/heads/mvn-repo</branch>
+                                    <!--<includes><include>**/*</include></includes>-->
+                                    <!-- github repo name -->
+                                    <!--<repositoryName>YOUR-REPOSITORY-NAME</repositoryName>-->
+                                    <!-- github username  -->
+                                    <!--<repositoryOwner>YOUR-GITHUB-USERNAME</repositoryOwner>-->
+                                </configuration>
+                            </execution>
+                            <!-- Push Maven Documentation Site on GITHUB -->
+                            <execution>
+                                <id>github-push-site</id>
+                                <phase>site</phase>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <configuration>
+                                    <message>Building site for ${project.version}</message>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-
-
-
 </project>
