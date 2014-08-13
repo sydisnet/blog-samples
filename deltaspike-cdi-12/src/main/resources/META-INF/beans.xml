@@ -16,7 +16,7 @@
         <!--<exclude name="com.zaxxer.hikari.hibernate.**"/>-->
         <!--<exclude name="com.zaxxer.hikari.metrics.**"/>-->
         <!-- JavAssist -->
-        <!--<exclude name="javassist.**"/>
+        <!--<exclude name="javassist.**"/>-->
         <!-- Oracle -->
         <!--<exclude name="oracle.xdb.**"/>-->
         <!--<exclude name="oracle.sql.**"/>-->
