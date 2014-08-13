@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>eu.sydisnet.blog.samples.deltaspike.cdi12</groupId>
+  <artifactId>singleton-case</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.0-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20140813164312</lastUpdated>
+  </versioning>
+</metadata>
