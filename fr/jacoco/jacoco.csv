@@ -1,3 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Singleton Case,eu.sydisnet.blog.samples.deltaspike.cdi12.control,MessageFormatter,13,32,0,0,2,6,1,4,1,4
-Singleton Case,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,HelloService,24,36,2,2,5,7,4,4,2,4
