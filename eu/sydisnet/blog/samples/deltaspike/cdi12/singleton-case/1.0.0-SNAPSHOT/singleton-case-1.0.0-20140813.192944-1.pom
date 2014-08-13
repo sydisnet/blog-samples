@@ -56,12 +56,12 @@
 
         <!-- API and Libs versions -->
         <cdi.api.version>1.2</cdi.api.version>
-        <deltaspike.core.api.version>1.0.0</deltaspike.core.api.version>
-        <weld.se.version>2.2.2.Final</weld.se.version>
+        <deltaspike.core.api.version>1.0.1</deltaspike.core.api.version>
+        <weld.se.version>2.2.4.Final</weld.se.version>
         <jandex.version>1.2.1.Final</jandex.version>
-        <deltaspike.core.impl.version>1.0.0</deltaspike.core.impl.version>
-        <deltaspike.cdictrl.api.version>1.0.0</deltaspike.cdictrl.api.version>
-        <deltaspike.cdictrl.weld.version>1.0.0</deltaspike.cdictrl.weld.version>
+        <deltaspike.core.impl.version>1.0.1</deltaspike.core.impl.version>
+        <deltaspike.cdictrl.api.version>1.0.1</deltaspike.cdictrl.api.version>
+        <deltaspike.cdictrl.weld.version>1.0.1</deltaspike.cdictrl.weld.version>
         <!-- Logging -->
         <slf4j.version>1.7.5</slf4j.version>
         <!-- Markdown Support for Maven site -->
@@ -72,7 +72,7 @@
         <hamcrest.version>1.3</hamcrest.version>
 
         <!-- For Packing -->
-        <app.main.class>eu.sydisnet.blog.samples.deltaspike.cdi12.main.Cdi12ContainerLauncher</app.main.class>
+        <!--<app.main.class>eu.sydisnet.blog.samples.deltaspike.cdi12.main.Cdi12ContainerLauncher</app.main.class>-->
     </properties>
 
     <!-- Dependencies -->
