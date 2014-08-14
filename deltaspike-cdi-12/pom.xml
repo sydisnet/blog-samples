@@ -340,7 +340,7 @@
     <!-- ################################################################################## -->
     <!-- ################################################################################## -->
     <!-- PROJECT INFORMATION -->
-    <name>Deltaspike and CDI 1.2 Demo</name>
+    <name>Apache DeltaSpike and CDI 1.2 Demo</name>
     <description>Independent project which explains how to make singleton-beans with CDI 1.2</description>
     <url>https://github.com/sydisnet/blog-samples/</url>
     <inceptionYear>2014</inceptionYear>
