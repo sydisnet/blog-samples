@@ -1,5 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Deltaspike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.control,MessageFormatter,0,45,0,0,0,8,0,5,0,5
-Deltaspike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,SingletonHelloServiceV2,7,49,2,2,1,9,2,5,0,5
-Deltaspike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,SingletonHelloService,56,0,4,0,10,0,7,0,5,0
-Deltaspike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,DependentHelloService,20,36,2,2,3,7,3,4,1,4
+Apache DeltaSpike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.control,MessageFormatter,0,45,0,0,0,8,0,5,0,5
+Apache DeltaSpike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,SingletonHelloServiceV2,7,49,2,2,1,9,2,5,0,5
+Apache DeltaSpike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,SingletonHelloService,56,0,4,0,10,0,7,0,5,0
+Apache DeltaSpike and CDI 1.2 Demo,eu.sydisnet.blog.samples.deltaspike.cdi12.boundary,DependentHelloService,20,36,2,2,3,7,3,4,1,4

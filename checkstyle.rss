@@ -19,9 +19,9 @@ under the License.
 -->
 <rss version="0.91">
   <channel>
-    <title>Deltaspike and CDI 1.2 Demo - Checkstyle report</title>
+    <title>Apache DeltaSpike and CDI 1.2 Demo - Checkstyle report</title>
     <link>https://github.com/sydisnet/blog-samples/</link>
-    <description>Deltaspike and CDI 1.2 Demo - Checkstyle report</description>
+    <description>Apache DeltaSpike and CDI 1.2 Demo - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2014 SYDISNET</copyright>
     <item>
