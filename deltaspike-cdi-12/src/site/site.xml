@@ -31,7 +31,7 @@
             <!--</googleSearch>-->
             <!--<sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>-->
             <gitHub>
-                <projectId>sydisnet/blog-samples/deltaspike-cdi-12</projectId>
+                <projectId>sydisnet/blog-samples/tree/master/deltaspike-cdi-12</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>green</ribbonColor>
             </gitHub>
